@@ -2,7 +2,19 @@
 return array(
     // This should be an array of module namespaces used in the application.
     'modules' => array(
-        'Application',
+//        'Application',
+		'DoctrineModule',
+		'DoctrineORMModule',
+		'ScnSocialAuth',
+		'ZfcBase',
+		'ZfcUser',		
+		'ZfcUserDoctrineORM',
+    	'BjyAuthorize',
+		'SamUser',
+		'BjyProfiler',
+		'jqueryFileUpload',
+		'GoalioMailService',
+		'Godana'
     ),
 
     // These are various options for the listeners attached to the ModuleManager
