@@ -10,8 +10,8 @@ class MySocialSignInButton extends AbstractHelper
         $redirectArg = $redirect ? '?redirect=' . $redirect : '';    
         $translate = $this->view->plugin('translate');    
         echo
-            '<a class="btn btn-social btn-lg btn-' . $provider . ' col-sm-12 col-xs-12 col-md-12" href="'
+            '<a class="btn btn-' . $provider . '" href="'
             . $this->view->url('scn-social-auth-user/login/provider', array('provider' => $provider))
-            . $redirectArg . '"><i class="fa fa-' . $provider . '"></i> ' . $translate("Sign up with") . ' ' . ucfirst($provider) . '</a>';
+            . $redirectArg . '"><i class="icon-' . $provider . '"></i></a>';
     }
 }

@@ -1,21 +1,13 @@
-<?php echo $this->headLink()
-                ->appendStylesheet($this->basePath() . '/css/social-buttons.css');?>
-<div class="row">
-<div class="col-md-6 col-md-offset-3">
-<div class="panel panel-default">
-<div class="panel-body">
 <?php
 $form = $this->loginForm;
 $form->prepare();
 $form->setAttribute('action', $this->url('zfcuser/login', array(), array(), true));
 $form->setAttribute('method', 'post');
-//$form->setAttribute('class', 'form-horizontal');
-//$form->setAttribute('class', 'form-inline');
 $form->setAttribute('role', 'form');
 ?>
-<div class="gdn_form_area">
+<div class="margin-top-40 log-page">
 <?php echo $this->form()->openTag($form) ?>
-
+<h3 class="center">Login to your account</h3>
 <? if($this->formElementErrors($form->get('identity'))): ?>
 <div class="alert alert-danger alert-dismissable">
 <button data-dismiss="alert" class="close">×</button>
@@ -26,40 +18,32 @@ $form->setAttribute('role', 'form');
                 ->render($form->get('identity')); ?>
 </div>
 <? endif;?>
-<!--        <?php echo $this->formElementErrors($form->get('identity')) ?>-->
-<div class="form-group">
-        <?php echo $this->translate($this->formLabel($form->get('identity'))) ?>
-        <div class="gdn_input_margin"><?php echo $this->formInput($form->get('identity')) ?></div>
+<div class="input-prepend">
+	<span class="add-on"><i class="icon-user"></i></span>
+	<?php echo $this->formInput($form->get('identity')) ?>
 </div>
-<div class="form-group">
-        <?php echo $this->formLabel($form->get('credential')) ?>
-        <div class="gdn_input_margin"><?php echo $this->formInput($form->get('credential')) ?></div>
+<div class="input-prepend">
+	<span class="add-on"><i class="icon-lock"></i></span>
+	<?php echo $this->formInput($form->get('credential')) ?>
 </div>
-        <?php if ($this->redirect): ?>
-            <input type="hidden" name="redirect" value="<?php echo $this->escapeHtml($this->redirect) ?>" />
-        <?php endif ?>
-
-        <div class="form-group">
-        <?php echo $this->formButton($form->get('submit')) ?>        
-        
-        </div>
-        <div class="form-group">
-        <?php     echo $this->mySocialSignInButton('facebook') ?>
-    	</div>
-
+<div class="controls form-inline">
+	<label class="checkbox"><input type="checkbox" /> Stay Signed in</label>
+	<?php echo $this->formButton($form->get('submit')) ?>
+</div>
 <?php echo $this->form()->closeTag() ?>
-
-<?php if ($this->enableRegistration) : ?>
-<div class="form-group">
-<a href="<?php echo $this->url('zfcuser/register', array(), array(), true) . 
-($this->redirect ? '?redirect='.$this->redirect : '') ?>" class="btn btn-danger btn-lg col-sm-12 col-xs-12 col-md-12 "><?php echo $this->translate('Sign up'); ?></a>
+<div class="social-or-login center">
+	<span class="bigger-110">Or Login Using</span>
 </div>
-<?php endif; ?>
-</div><!-- end .gdn_form_area -->
-</div><!-- end .panel-body -->
-</div><!-- end .panel -->
-</div><!-- end .col-md-8 -->
-</div><!-- end row -->
+<div class="social-login center">
+<?php     echo $this->mySocialSignInButton('facebook') ?>	
+</div>
+
+<div class="gdn-register center">
+<a href="<?php echo $this->url('zfcuser/register', array(), array(), true) . 
+($this->redirect ? '?redirect='.$this->redirect : '') ?>" class="btn-u btn-u-red btn-block"><?php echo $this->translate('Sign up'); ?></a>
+</div>
+</div>
+
 <script type="text/javascript">
 $(function() {
 	window.setTimeout(function() {

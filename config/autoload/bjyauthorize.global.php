@@ -119,6 +119,7 @@ return array(
                 array('route' => 'zfcuser/changepassword', 'roles' => array('user')),
                 array('route' => 'zfcuser/login', 'roles' => array('guest')),
                 array('route' => 'zfcuser/register', 'roles' => array('guest')),
+                array('route' => 'zfcuser/input_validate', 'roles' => array('guest')),
                 array('route' => 'zfcuser/activation_pending', 'roles' => array('guest')),
                 array('route' => 'zfcuser/activation_done', 'roles' => array('guest')),
                 array('route' => 'zfcuser/profile', 'roles' => array('guest')),

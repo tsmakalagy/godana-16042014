@@ -16,13 +16,12 @@ class Base extends ProvidesEventsForm
             'options' => array(
                 'label' => 'Email',
         		'label_attributes' => array(
-		            'class' => 'sr-only',
+		            'class' => 'control-label required-label',
 		        ),
             ),
             'attributes' => array(
                 'type' => 'text',
-                'class' => 'gdn_text',
-            	'placeholder' => 'Email'
+                'class' => 'span12'
             ),
         ));
         
@@ -31,13 +30,12 @@ class Base extends ProvidesEventsForm
             'options' => array(
                 'label' => 'Username',
         		'label_attributes' => array(
-		            'class' => 'sr-only',
+		            'class' => 'control-label required-label',
 		        ),
             ),
             'attributes' => array(
                 'type' => 'text',
-                'class' => 'gdn_text',
-            	'placeholder' => 'Username'
+                'class' => 'span12'
             ),
         ));
         
@@ -46,13 +44,12 @@ class Base extends ProvidesEventsForm
             'options' => array(
                 'label' => 'First name',
         		'label_attributes' => array(
-		            'class' => 'sr-only',
+		            'class' => 'control-label required-label',
 		        ),
             ),
             'attributes' => array(
                 'type' => 'text',
-                'class' => 'gdn_text',
-            	'placeholder' => 'First name'
+                'class' => 'span12'
             ),
         ));
         
@@ -61,14 +58,13 @@ class Base extends ProvidesEventsForm
             'options' => array(
                 'label' => 'Last name',
         		'label_attributes' => array(
-		            'class' => 'sr-only',
+		            'class' => 'control-label',
 		        ),
             ),
             'attributes' => array(
                 'type' => 'text',
-                'class' => 'gdn_text',
-            	'placeholder' => 'Last name'
-            ),
+                'class' => 'span12'
+            )
         ));
         
         $this->add(array(
@@ -76,13 +72,12 @@ class Base extends ProvidesEventsForm
             'options' => array(
                 'label' => 'Date of birth',
         		'label_attributes' => array(
-		            'class' => 'sr-only',
+		            'class' => 'control-label required-label',
 		        ),
             ),
             'attributes' => array(
                 'type' => 'text',
-                'class' => 'datepicker gdn_text',
-            	'placeholder' => 'Date of birth'
+                'class' => 'datepicker span12'
             ),
         ));		       
     
@@ -92,16 +87,15 @@ class Base extends ProvidesEventsForm
             'options' => array(
                 'label' => 'Sex',
         		'label_attributes' => array(
-		            'class' => 'sr-only',
+		            'class' => 'control-label required-label',
 		        ),
-		        'empty_option' => 'Sex',
 		        'value_options' => array(
 	            	'0' => 'M',
 	           	 	'1' => 'F',
 			   	),			   	
             ),   
             'attributes' => array(
-            	'class' => 'sex-select gdn_select',
+            	'class' => 'sex-select span12 gdn-select',
             ),        
               
         ));        
@@ -110,12 +104,13 @@ class Base extends ProvidesEventsForm
             'name' => 'display_name',
             'options' => array(
                 'label' => 'Display Name',
-        		'class' => 'sr-only',
+        		'label_attributes' => array(
+		            'class' => 'control-label',
+		        ),
             ),
             'attributes' => array(
                 'type' => 'text',
-            	'class' => 'gdn_text',
-            	'placeholder' => 'Display Name'
+            	'class' => 'span12'
             ),
         ));
 
@@ -124,13 +119,12 @@ class Base extends ProvidesEventsForm
             'options' => array(
                 'label' => 'Password',
         		'label_attributes' => array(
-		            'class' => 'sr-only',
+		            'class' => 'control-label required-label',
 		        ),
             ),
             'attributes' => array(
                 'type' => 'password',
-                'class' => 'gdn_text',
-            	'placeholder' => 'Password'
+                'class' => 'span12'
             ),
         ));
 
@@ -139,13 +133,12 @@ class Base extends ProvidesEventsForm
             'options' => array(
                 'label' => 'Password Verify',
         		'label_attributes' => array(
-		            'class' => 'sr-only',
+		            'class' => 'control-label required-label',
 		        ),
             ),
             'attributes' => array(
                 'type' => 'password',
-                'class' => 'gdn_text',
-            	'placeholder' => 'Password Verify'
+                'class' => 'span12'
             ),
         ));
 
@@ -156,14 +149,13 @@ class Base extends ProvidesEventsForm
                 'options' => array(
                     'label' => 'Please type the following text',
             		'label_attributes' => array(
-			            'class' => 'sr-only',
-			        ),
+		            	'class' => 'control-label required-label',
+		        	),
                     'captcha' => $this->getRegistrationOptions()->getFormCaptchaOptions(),
             		'separator' => 'blabla'
                 ),
                 'attributes' => array(
-	                'class' => 'gdn_text gdn_captcha_text',
-	            	'placeholder' => 'Please type the above text'
+	                'class' => 'span4 gdn_captcha_text'
 	            ),
             ));
         }
@@ -173,7 +165,7 @@ class Base extends ProvidesEventsForm
             ->setLabel('Submit')
             ->setAttributes(array(
                 'type'  => 'submit',
-                'class' => 'btn btn-primary col-sm-12 col-xs-12 col-md-12 btn-lg',
+                'class' => 'btn-u pull-right',
             ));
 
         $this->add($submitElement, array(

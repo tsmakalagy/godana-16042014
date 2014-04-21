@@ -362,6 +362,81 @@ class MyUserController extends AbstractActionController
         return $this->redirect()->toRoute(static::ROUTE_ACTIVATION_PENDING, array('lang' => $lang, 'userId' => $userId));
     }
     
+    public function validateInputAjaxAction()
+    {
+		$form = $this->getRegisterForm();
+		$request = $this->getRequest();
+		
+		if ($request->isPost()) {
+			// Default validators are added to the input filter
+			$input_filter = $form->getInputFilter();
+		
+			// 'my_form_element' is the name of an element in the form
+			$input_name = $request->getPost('name');
+			
+			if ($input_name != 'passwordVerify') {
+				$input_element = $input_filter->get($input_name);
+			
+				// Set the value to validate against
+				$input_element->setValue($request->getPost($input_name));
+			
+				// Check if the provided value is not valid
+				if (!$input_element->isValid()) {
+					// Element value is not valid
+					$result['success'] = false;
+					$messages = $input_element->getMessages();
+					$error_message = '';
+					foreach ($messages as $message) {
+						$error_message .= '<div class="help-block">'.$message.'</div>';
+					}
+					$data = array(
+				        'success' => false,
+				        'error_msg' => $error_message
+				    );
+				    return $this->getResponse()->setContent(\Zend\Json\Json::encode($data));
+				} else {
+					$result['success'] = false;
+					$data = array(
+				        'success' => true,
+				    );
+				    return $this->getResponse()->setContent(\Zend\Json\Json::encode($data));
+				}
+			} else {
+				$form->setValidationGroup(array('passwordVerify'));
+				
+				$password = $request->getPost('password');
+				$passwordVerify = $request->getPost('passwordVerify');
+				
+				$data['password'] = $password;
+				$data['passwordVerify'] = $passwordVerify;
+				
+				$form->setData($data);
+			
+				// Check if the provided value is not valid
+				if (!$form->isValid()) {
+					$result['success'] = false;
+					$messages = $form->get('passwordVerify')->getMessages();
+					$error_message = '';
+					foreach ($messages as $message) {
+						$error_message .= '<div class="help-block">'.$message.'</div>';
+					}
+					$data = array(
+				        'success' => false,
+				        'error_msg' => $error_message
+				    );
+				    return $this->getResponse()->setContent(\Zend\Json\Json::encode($data));
+				} else {
+					$result['success'] = false;
+					$data = array(
+				        'success' => true,
+				    );
+				    return $this->getResponse()->setContent(\Zend\Json\Json::encode($data));
+				}
+			}
+			
+		}
+    }
+    
 	/**
      * Edit user profile
      */

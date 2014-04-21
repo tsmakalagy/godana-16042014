@@ -30,7 +30,7 @@ class Login extends ProvidesEventsForm
             ),
             'attributes' => array(
                 'type' => 'text',
-				'class' => 'gdn_text',
+				'class' => 'input-xlarge',
             ),
         ));
 
@@ -53,7 +53,7 @@ class Login extends ProvidesEventsForm
             ),
             'attributes' => array(
                 'type' => 'password',
-				'class' => 'gdn_text',
+				'class' => 'input-xlarge',
             	'placeholder' => 'Password'
             ),
         ));
@@ -72,7 +72,7 @@ class Login extends ProvidesEventsForm
             ->setLabel('Sign In')
             ->setAttributes(array(
                 'type'  => 'submit',
-            	'class' => 'btn btn-primary col-sm-12 col-xs-12 col-md-12 btn-lg',
+            	'class' => 'btn-u pull-right',
             ));
 
         $this->add($submitElement, array(

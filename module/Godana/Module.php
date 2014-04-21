@@ -529,17 +529,17 @@ class Module
 	
 	public function init(\Zend\ModuleManager\ModuleManager $moduleManager) 
    	{
-   		$sharedEvents = $moduleManager
-   			->getEventManager()->getSharedManager();
-   		$sharedEvents->attach(
-   			'index',
-   			'dispatch',
-   				function($e) {
-   					$controller = $e->getTarget();
-   					$controller->layout('layout/layout');
-   				},
-   			100
-   		);
+//   		$sharedEvents = $moduleManager
+//   			->getEventManager()->getSharedManager();
+//   		$sharedEvents->attach(
+//   			'index',
+//   			'dispatch',
+//   				function($e) {
+//   					$controller = $e->getTarget();
+//   					$controller->layout('layout/unify-layout');
+//   				},
+//   			100
+//   		);
    	}
    	
 	public function onBootstrap(MvcEvent $mvcEvent)
